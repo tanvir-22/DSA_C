@@ -1,35 +1,34 @@
 #include<stdio.h>
 void selection_sort(int array[],int n)
 {
-    int i,j,index_min,temp;
-    for(i=0;i<n-1;i++)
-    {
-        index_min=i;
-        for(j=i+1;j<n;j++)
-        {
-            if(array[j]<array[index_min])
+        int min,i,j,temp;
+        for(i=0;i<n;i++)
+        {   min=i; //we assume
+            for(j=i+1;j<n;j++)
             {
-                index_min=j;
+                if(array[j]<array[min])
+                {
+                    min=j;
+                }
+            }
+            if(min!=j)
+            {
+                temp=array[i];
+                array[i]=array[min];
+                array[min]=temp;
             }
         }
-        if(index_min!=j)
+        printf("sorted array : ");
+        for(int k=0;k<n;k++)
         {
-            temp=array[i];
-            array[i]=array[index_min];
-            array[index_min]=temp;
+            printf("%4d",array[k]);
         }
-    }
-    for(int k=0;k<n;k++)
-    {
-        printf("%2d",array[k]);
-    }
 }
-//complexity O(n^2)
 int main()
 {
-    int array[]={4,5,2,3,1};
-    int n=sizeof(array)/sizeof(array[0]);
-   selection_sort(array,n);
-
-   return 0;
+    int array[]={8,5,6,12,57};
+    int n;
+    n=sizeof(array)/sizeof(array[0]);
+    selection_sort(array,n);
+    return 0;
 }
