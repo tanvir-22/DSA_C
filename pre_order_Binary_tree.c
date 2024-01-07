@@ -68,9 +68,44 @@ void pre_order(Node *node)
         pre_order(node->right);
     }
 }
+
 int main()
 {
     Node *root = create_tree();
     pre_order(root);
+    // post_order(root);
+    // in_order(root);
     return 0;
 }
+
+/*
+void post_order(Node *node)
+{
+
+    if (node->left != NULL)
+    {
+        pre_order(node->left);
+    }
+    if (node->right != NULL)
+    {
+        pre_order(node->right);
+    }
+    printf("%d->", node->data);
+}
+*/
+/*
+void in_order(Node *node)
+{
+
+    if (node->left != NULL)
+    {
+        pre_order(node->left);
+    }
+      printf("%d->", node->data);
+    if (node->right != NULL)
+    {
+        pre_order(node->right);
+    }
+
+}
+*/
